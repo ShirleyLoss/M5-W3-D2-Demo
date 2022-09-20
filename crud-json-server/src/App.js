@@ -62,8 +62,8 @@ class App extends React.Component {
       {
         singledata: {
           title: "Loading...",
-          author: "Loading...",
-        },
+          author: "Loading..."
+        }
       },
       () => {
         fetch("http://localhost:5000/posts" + id)
@@ -80,13 +80,13 @@ class App extends React.Component {
     );
   };
 
-  updateList = (event, id) => {
+  updateList=(event, id) => {
     fetch("http://localhost:5000/posts/" + id, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(this.state.singledata),
+      body: JSON.stringify(this.state.singledata)
     })
       .then((res) => res.json())
       .then((result) => {
@@ -96,7 +96,7 @@ class App extends React.Component {
             author: "",
           },
         });
-        this.getList();
+        this.getLists();
       });
   };
 
