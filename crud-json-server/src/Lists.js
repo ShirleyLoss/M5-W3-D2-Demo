@@ -1,5 +1,6 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import UpdateList from './UpdateList';
 
 function Lists(props) {
     let listrows = [];
@@ -9,6 +10,15 @@ function Lists(props) {
                 <td>{element.id}</td>
                 <td>{element.title}</td>
                 <td>{element.author}</td>
+                <td>
+                    <UpdateList
+                        elementId={element.id}
+                        singledata={props.singledata}
+                        getList={props.getList}
+                        updateList={props.updateList}
+                        handlechange={props.handleChange}
+                    />
+                </td>
             </tr>
         )
     });
