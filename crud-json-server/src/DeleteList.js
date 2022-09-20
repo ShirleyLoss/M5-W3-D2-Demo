@@ -47,7 +47,7 @@ function DeleteList(props) {
                         variant="primary" 
                         onClick={(event) => {
                             handleClose();
-                            props.updateList(event, props.elementId);
+                            props.deleteList(event, props.elementId);
                         }}
                     >
                         Delete

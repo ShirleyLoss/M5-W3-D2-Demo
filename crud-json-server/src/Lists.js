@@ -18,7 +18,8 @@ function Lists(props) {
                         getList={props.getList}
                         updateList={props.updateList}
                         handlechange={props.handleChange}
-                    />
+                    >
+                    </UpdateList>
                 </td>
                 <td>
                     <DeleteList
@@ -26,7 +27,8 @@ function Lists(props) {
                         singledata={props.singledata}
                         getList={props.getList}
                         deleteList={props.deleteList}
-                    />
+                    >
+                    </DeleteList>
                 </td>
             </tr>
         )
