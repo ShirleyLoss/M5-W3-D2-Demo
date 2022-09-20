@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { FormGroup } from "react-bootstrap";
 import { Modal, Button } from "react-bootstrap";
 
-function UpdateList(props) {
+function DeleteList(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -15,19 +14,19 @@ function UpdateList(props) {
                     props.getList(evt, props.elementId);
                 }}
             >
-                Update
+                Delete
             </Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Update List</Modal.Title>
+                    <Modal.Title>Delete List</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <input 
                         type="text"
                         placeholder="Title"
                         name="title"
-                        value={props.singledata.title}
-                        onChange={props.handleChange}
+                        value={props.singledata.titile}
+                        disabled={true}
                         className="d-block my-3"
                     />
                     <input 
@@ -36,6 +35,7 @@ function UpdateList(props) {
                         name="author"
                         value={props.singledata.author}
                         onChange={props.handleChange}
+                        disabled={true}
                         className="d-block my-3"
                     />
                 </Modal.Body>
@@ -50,7 +50,7 @@ function UpdateList(props) {
                             props.updateList(event, props.elementId);
                         }}
                     >
-                        Update
+                        Delete
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -58,4 +58,4 @@ function UpdateList(props) {
     );
 }
 
-export default UpdateList;
+export default DeleteList;

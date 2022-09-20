@@ -10,7 +10,7 @@ class App extends React.Component {
         alldata: [],
         singledata: {
           title: "",
-          author: ""
+          author: "",
         }
       };
     }
@@ -35,8 +35,8 @@ class App extends React.Component {
       this.setState({
         singledata: {
           title: title,
-          author: author
-        }
+          author: author,
+        },
       });
     }
 
@@ -51,18 +51,18 @@ class App extends React.Component {
         this.setState({
           singledata: {
             title: "",
-            author: ""
-          }
+            author: "",
+          },
         })
       );
     }
 
-    getLists = (event, id) => {
+    getList = (event, id) => {
       this.setState(
         {
           singledata: {
             title: "Loading...",
-            author: "Loading..."
+            author: "Loading...",
           },
         },
         () => {
@@ -72,7 +72,7 @@ class App extends React.Component {
               this.setState({
                 singledata: {
                   title: result.title,
-                  author: result.author ? result.author : ""
+                  author: result.author ? result.author : "",
                 },
               });
             });
@@ -98,6 +98,20 @@ class App extends React.Component {
           });
           this.getList();
         });
+    };
+
+    deleteList = (event, id) => {
+      fetch("http://localhost:5000/posts/" + id, {
+        method: "DELETE"
+      }).then(res => res.json()).then(result => {
+        this.setState({
+          singledata: {
+            title: "",
+            author: "",
+          },
+        });
+        this.getLists();
+      });
     };
 
     render(){
